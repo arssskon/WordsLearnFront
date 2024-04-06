@@ -4,6 +4,8 @@ import { UserInfo } from '@vkontakte/vk-bridge';
 import { setActivePanel } from '../../store/activePanel';
 import { Icon20EducationOutline, Icon56NewsfeedOutline } from '@vkontakte/icons';
 import styles from '../modules-choice/styles.module.css';
+import Transcription from '../transcription-words';
+import { setActiveTab } from '../../store/activeTab';
 
 interface Props {
     id: string;
@@ -17,7 +19,7 @@ const ModulesChoice: React.FC<Props> = ({ id }) => (
         <PanelHeader>Модули</PanelHeader>
         <Group mode="plain" >
             <CardGrid size="l">
-                <Card className={styles.background} style={{ height: 96, }} onClick={() => setActivePanel("transcription")}>
+                <Card className={styles.background} style={{ height: 96 }} onClick={() => setActiveTab("transcription")}>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <div>
                         <Title level="2" className={styles.title}>

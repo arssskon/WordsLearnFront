@@ -9,6 +9,7 @@ import Navigation from '../tabbar';
 import Dictionary from '../dictionary';
 import Profile from '../profile';
 import ModulesChoice from '../modules-choice';
+import Transcription from '../transcription-words';
 
 
 interface Props {
@@ -37,6 +38,8 @@ const Modules: React.FC<Props> = ({ go, id }) => {
                 <Dictionary key='two' id='two'/>
                 
                 <Profile key='three' id='three'/>  
+
+                <Transcription id='transcription' go={go} />
 
             </Epic>
         </Panel>

@@ -107,7 +107,7 @@ const App = () => {
 								<Time id={ROUTES.TIME} go={go} />
 								<Notifications id={ROUTES.NOTIFICATIONS} go={go} />
 								<Modules id={ROUTES.MODULES} go={go} />
-								<Transcription id={ROUTES.TRANSCRIPTION} go={go} />
+								{/* <Transcription id={ROUTES.TRANSCRIPTION} go={go} /> */}
 							</View>
 						</SplitCol>
 					</SplitLayout>

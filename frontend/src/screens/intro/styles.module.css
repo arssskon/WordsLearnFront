@@ -2,25 +2,23 @@
     height: 195px;
     width: 195px;
     display: block;
-    margin: 0 auto
+    margin-top: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .screen {
-    align-items: center;
     display: flex;
-    
+    flex-direction: column;
     justify-content: center;
-    position: absolute; 
-    top: 0;
-    width: 100%;
-    max-height: 100vh;
-    height: 100vh;
-}
-
-.btn {
+    width: 94%;
+    height: 100%;
     
 }
 
-.groop {
-    height: ;
+
+.group {
+    display: flex;
+    margin-top: 40%;
 }
+

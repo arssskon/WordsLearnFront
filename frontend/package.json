@@ -19,14 +19,19 @@
         "@vkontakte/vk-bridge": "latest",
         "@vkontakte/vk-miniapps-deploy": "^0.0.25",
         "@vkontakte/vkui": "5.1.0",
+        "effector": "^23.2.0",
+        "effector-react": "^23.2.0",
         "eruda": "^2.4.1",
         "eruda-code": "^2.0.0",
         "eruda-dom": "^2.0.0",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
+        "react-slick": "^0.30.2",
+        "swiper": "^11.1.0",
         "typescript": "^4.9.5"
     },
     "devDependencies": {
+        "@types/react-slick": "^0.23.13",
         "cross-env": "^7.0.3",
         "react-hot-loader": "^4.13.0",
         "react-scripts": "^5.0.1"

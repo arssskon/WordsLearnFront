@@ -6,6 +6,7 @@ import styles from '../intro/styles.module.css';
 
 import { Panel, PanelHeader, Header, Button, Group, Cell, Div, Avatar, Image } from '@vkontakte/vkui';
 import { UserInfo } from '@vkontakte/vk-bridge';
+import { setActivePanel } from '../../store/activePanel';
 
 interface Props {
 	id: string;
@@ -13,24 +14,24 @@ interface Props {
 }
 
 
-const Intro: React.FC<Props> = ({ go, id  }) => (
-	<Panel id={id}  className={styles.screen} style={{margin: 'auto 0 0'}}>
-		
-			<Group className={styles.groop}>
-				<Div >
-					<img
-						className={styles.logo}
-						src={logo}
-					/>
-				</Div>
-				<Div>
-					<Button className={styles.btn} stretched size="l" mode="secondary" onClick={go} data-to="persik" appearance='accent'>
-						Дальше
-					</Button>
-				</Div>
-			</Group>
-		
+const Intro: React.FC<Props> = ({ go, id }) => (
+	<Div className={styles.screen}>
+	<Panel id={id}  >
+		<Group  >
+			<Div >
+				<img
+					className={styles.logo}
+					src={logo}
+				/>
+			</Div>
+			<Div className={styles.group}>
+				<Button stretched size="l" onClick={() => setActivePanel("choice")} style={{ }}>
+					Дальше
+				</Button>
+			</Div>
+		</Group>
 	</Panel>
+	</Div>
 );
 
 export default Intro;

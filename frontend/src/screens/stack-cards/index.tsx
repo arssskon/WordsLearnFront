@@ -31,20 +31,17 @@ const Stack: React.FC<Props> = ({ go, id }) => {
                         className={styles.mySwiper}
 
                     >
-                        <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>ноги</SwiperSlide>
-                        <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>руки</SwiperSlide>
-                        <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>голова</SwiperSlide>
-                        <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>тело</SwiperSlide>
-                        <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>сердце</SwiperSlide>
-                        <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>палец</SwiperSlide>
-                        <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>печень</SwiperSlide>
-                        <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>зубы</SwiperSlide>
-                        <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>глаз</SwiperSlide>
+                        <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>1 ноги</SwiperSlide>
+                        <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>2 руки</SwiperSlide>
+                        <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>3 голова</SwiperSlide>
+                        <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>4 тело</SwiperSlide>
+                        <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>5 сердце</SwiperSlide>
+                        <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>6 палец</SwiperSlide>
+                        <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>7 печень</SwiperSlide>
+                        <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>8 зубы</SwiperSlide>
+                        <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>9 глаз</SwiperSlide>
                     </Swiper>
                 </Div>
-
-
-
             </Group>
         </Panel>
     );

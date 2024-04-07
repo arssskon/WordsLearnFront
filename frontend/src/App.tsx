@@ -12,7 +12,7 @@ import Choice from './screens/choice';
 import Notifications from './screens/notifications';
 import Modules from './screens/modules-home'
 import Transcription from './screens/transcription-words'
-
+import Stack from './screens/stack-cards'
 import Time from './screens/class-time';
 import { useUnit } from 'effector-react';
 import { $activePanel, setActivePanel } from './store/activePanel';
@@ -28,8 +28,8 @@ const ROUTES = {
 	TIME: 'time',
 	NOTIFICATIONS: 'notifications',
 	MODULES: 'modules',
-	TRANSCRIPTION: 'transcription'
-	
+	TRANSCRIPTION: 'transcription',
+	STACK: 'stack'
 }
 
 const STOREGE_KEYS = {

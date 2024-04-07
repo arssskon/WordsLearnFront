@@ -10,6 +10,7 @@ import Dictionary from '../dictionary';
 import Profile from '../profile';
 import ModulesChoice from '../modules-choice';
 import Transcription from '../transcription-words';
+import Stack from '../stack-cards';
 
 
 interface Props {
@@ -40,6 +41,8 @@ const Modules: React.FC<Props> = ({ go, id }) => {
                 <Profile key='three' id='three'/>  
 
                 <Transcription id='transcription' go={go} />
+
+                <Stack id='stack' go={go} />
 
             </Epic>
         </Panel>

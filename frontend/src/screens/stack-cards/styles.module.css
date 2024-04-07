@@ -1,0 +1,37 @@
+.stackBase {
+    height: 800px;
+    display: flex;
+    background-color: rgb(92, 156, 230);
+    align-items: center;
+    justify-content: center;
+}
+
+.swiper {
+    width: 80%;
+    height: 80%;
+}
+
+
+.swiperSlide {
+    text-align: center;
+    background: #ffffff;
+    border-radius: 11px;
+    /* Center slide text vertically */
+    /* width: 150px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mySwiper {
+    height: 250px;
+    width: 350px;
+} 
+
+.swiper {
+    width: 480px;
+    height: 890px;
+}
+
+
+

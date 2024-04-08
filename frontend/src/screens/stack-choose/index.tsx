@@ -46,7 +46,7 @@ const Сhoose: React.FC<Props> = ({ go, id }) => {
                     <Card mode="outline">
                         <div className={styles.choice}>
                             <Title level="3" className={styles.caption}>
-                                Chamaemelon
+                                Auris
                             </Title>
                             <Checkbox/>
                         </div>
@@ -55,7 +55,7 @@ const Сhoose: React.FC<Props> = ({ go, id }) => {
                     <Card mode="outline">
                         <div className={styles.choice}>
                             <Title level="3" className={styles.caption}>
-                                Chamaemelon
+                                Ixia
                             </Title>
                             <Checkbox/>
                         </div>
@@ -64,7 +64,7 @@ const Сhoose: React.FC<Props> = ({ go, id }) => {
                     <Card mode="outline">
                         <div className={styles.choice}>
                             <Title level="3" className={styles.caption}>
-                                Chamaemelon
+                                Cranium
                             </Title>
                             <Checkbox/>
                         </div>
@@ -73,7 +73,7 @@ const Сhoose: React.FC<Props> = ({ go, id }) => {
                     <Card mode="outline">
                         <div className={styles.choice}>
                             <Title level="3" className={styles.caption}>
-                                Chamaemelon
+                                Caput
                             </Title>
                             <Checkbox/>
                         </div>

@@ -1,0 +1,31 @@
+.text {
+    height: 150px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.choice1 {
+    margin-top: 80px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between
+}
+
+.choice {
+    margin-top: 20px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between
+}
+
+.caption {
+    margin-left: 10px;
+}

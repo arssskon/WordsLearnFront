@@ -11,7 +11,7 @@ import Profile from '../profile';
 import ModulesChoice from '../modules-choice';
 import Transcription from '../transcription-words';
 import Stack from '../stack-cards';
-
+import Choose from '../stack-choose'
 
 interface Props {
     id: string;
@@ -43,6 +43,8 @@ const Modules: React.FC<Props> = ({ go, id }) => {
                 <Transcription id='transcription' go={go} />
 
                 <Stack id='stack' go={go} />
+
+                <Choose id='choose' go={go} />
 
             </Epic>
         </Panel>

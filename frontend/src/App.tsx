@@ -16,6 +16,7 @@ import Stack from './screens/stack-cards'
 import Time from './screens/class-time';
 import { useUnit } from 'effector-react';
 import { $activePanel, setActivePanel } from './store/activePanel';
+import Сhoose from './screens/stack-choose'
 
 interface Data {
     [key: string]: any;
@@ -29,7 +30,8 @@ const ROUTES = {
 	NOTIFICATIONS: 'notifications',
 	MODULES: 'modules',
 	TRANSCRIPTION: 'transcription',
-	STACK: 'stack'
+	STACK: 'stack',
+	CHOOSE: 'choose'
 }
 
 const STOREGE_KEYS = {

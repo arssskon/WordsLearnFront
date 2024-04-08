@@ -7,8 +7,8 @@
 }
 
 .swiper {
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -25,13 +25,33 @@
 
 .mySwiper {
     height: 250px;
-    width: 450px;
+    width: 100vw;
+    padding: 0 50px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
 } 
 
-.swiper {
+/* .swiper {
     width: 480px;
     height: 890px;
-}
+} */
+
+.btnFurther {
+    align-items: center; 
+    position: absolute;
+    
+    bottom: 80px;
+    justify-content: center;
+    width: 90vw;
+} 
+
+/* .Button:hover {
+    border: 3px dotted #3a7999;
+	color: #3a7999;
+	background: rgba(0,0,0,0);
+} */
+
 
 
 

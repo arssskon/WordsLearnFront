@@ -1,0 +1,19 @@
+.text {
+    height: 170px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+}
+
+.choice {
+    margin-top: 20px;
+    width: 90vw;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between
+}

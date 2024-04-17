@@ -16,7 +16,13 @@ import Stack from './screens/stack-cards'
 import Time from './screens/class-time';
 import { useUnit } from 'effector-react';
 import { $activePanel, setActivePanel } from './store/activePanel';
-import Сhoose from './screens/stack-choose'
+import Сhoose from './screens/stack-choose';
+import ModulesChoice from './screens/modules-choice';
+import Control from './screens/test-write';
+import Cards from './screens/test-cards';
+import Lists from './screens/dictionary-list'
+import Setting from './screens/profile-setting/indet';
+import Error from './screens/error';
 
 interface Data {
     [key: string]: any;
@@ -31,7 +37,13 @@ const ROUTES = {
 	MODULES: 'modules',
 	TRANSCRIPTION: 'transcription',
 	STACK: 'stack',
-	CHOOSE: 'choose'
+	CHOOSE: 'choose',
+	MODULESCHOICE: 'ModulesChoice',
+	CONTROL: 'control',
+	CARDS: 'cards',
+	LISTS: 'lists',
+	SETTIMG: 'setting',
+	ERROR: 'error'
 }
 
 const STOREGE_KEYS = {

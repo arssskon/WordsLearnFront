@@ -1,7 +1,7 @@
 import React, { Fragment, MouseEventHandler, useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from '../modules-home/styles.module.css';
-import { Panel, PanelHeader, Group, Div, TabbarItem, Tabbar, Epic, View, PanelHeaderBack, Placeholder } from '@vkontakte/vkui';
+import { Panel, PanelHeader, Group, Div, TabbarItem, Tabbar, Epic, View, PanelHeaderBack, Placeholder, List } from '@vkontakte/vkui';
 import { Icon28MessageOutline, Icon28NewsfeedOutline, Icon28UserCircleOutline, Icon56NewsfeedOutline } from '@vkontakte/icons';
 import { useUnit } from 'effector-react';
 import { $activeTab, setActiveTab } from '../../store/activeTab';
@@ -12,6 +12,11 @@ import ModulesChoice from '../modules-choice';
 import Transcription from '../transcription-words';
 import Stack from '../stack-cards';
 import Choose from '../stack-choose'
+import Control from '../test-write';
+import Cards from '../test-cards';
+import Lists from '../dictionary-list';
+import Setting from '../profile-setting/indet';
+import Error from '../error';
 
 interface Props {
     id: string;
@@ -36,7 +41,7 @@ const Modules: React.FC<Props> = ({ go, id }) => {
                 } >
                 <ModulesChoice key='one' id='one'/>
                
-                <Dictionary key='two' id='two'/>
+                <Dictionary key='two' id='two' go={go}/>
                 
                 <Profile key='three' id='three'/>  
 
@@ -45,6 +50,17 @@ const Modules: React.FC<Props> = ({ go, id }) => {
                 <Stack id='stack' go={go} />
 
                 <Choose id='choose' go={go} />
+
+                <Control id='control' go={go} writebar={undefined} />
+
+                <Cards id='cards' go={go} />
+
+                <Lists id='lists' go={go} />
+
+                <Setting id='setting' go={go} />
+
+                <Error id='error' go={go} />
+
 
             </Epic>
         </Panel>

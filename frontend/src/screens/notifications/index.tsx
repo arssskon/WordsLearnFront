@@ -32,11 +32,17 @@ const Notifications: React.FC<Props> = ({ go, id }) => {
                 <Div className={styles.timers} style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', zIndex: '2', marginTop: '-80px'}}>
                     <Div>
                         <Swiper
+                            // direction={'vertical'}
+                            // //slidesPerView={3}
+                            // spaceBetween={30}
+                            // modules={[FreeMode, Pagination]}
+                            // className={styles.mySwiper}
                             direction={'vertical'}
-                            // slidesPerView={3}
-                            spaceBetween={30}
+                            slidesPerView={5}
+                            // spaceBetween={3}
                             modules={[FreeMode, Pagination]}
                             className={styles.mySwiper}
+
 
                         >
                             <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>5 мин</SwiperSlide>

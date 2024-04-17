@@ -29,3 +29,12 @@
 .caption {
     margin-left: 10px;
 }
+
+.btnEnd {
+    align-items: center; 
+    /* position: absolute; */
+    
+    margin-top: 20px;
+    justify-content: center;
+    /* width: 90vw; */
+} 

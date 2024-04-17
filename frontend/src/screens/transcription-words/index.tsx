@@ -7,7 +7,9 @@ import { Panel, PanelHeader, Group, Div, TabbarItem, Tabbar, Epic, View, PanelHe
 import { useUnit } from 'effector-react';
 import { $activeTab, setActiveTab } from '../../store/activeTab';
 import Navigation from '../tabbar';
-
+import { $activeModule, setActiveModule } from '../../store/activeModule';
+// import { data }  from '../../data'
+import data from '../../data'
 
 
 interface Props {
@@ -20,146 +22,51 @@ interface Props {
 const Transcription: React.FC<Props> = ({ go, id }) => {
     const [text, setText] = useState<string>('one'); // Initialize text state with 'one'
     // const onStoryChange = (e: any) => setActiveStory(e.currentTarget.dataset.story);
-    // const activeStory = useUnit($activeTab)
+    const activeModule = useUnit($activeModule)
+    console.log(activeModule);
+
+    const currentData = data.find(el => el.id == activeModule)
+
 
     return (
         <Panel id={id} >
-            <PanelHeader before={<PanelHeaderBack />}> Модуль 1</PanelHeader>
+            {/* <PanelHeader before={<PanelHeaderBack />}> {currentData?.title}</PanelHeader> */}
+            <PanelHeader
+                // delimiter={"spacing"}
+                before={<PanelHeaderBack onClick={() => setActiveTab('one')} />}
+            >
+                {currentData?.title}
+            </PanelHeader>
             <Group style={{ height: '1000px' }} >
                 <CardGrid size="m">
-                    {/* сделать разные маштабы с или м при разной адоптации */}
-                    <Card>
-                        <div className={styles.cards}>
-                            <div className={styles.check}>
-                                <Checkbox />
-                            </div>
-                            <Title level="2" style={{ marginTop: '60px' }}>
-                                Ixia
-                            </Title>
-                            <Caption level="2" style={{ marginTop: '5px' }}>
-                                ɪkˈsɪə
-                            </Caption>
-                            <Caption level="1" style={{ marginTop: '10px' }}>
-                                Иксия
-                            </Caption>
-                        </div>
-                    </Card>
-                    <Card>
-                        <div className={styles.cards}>
-                            <div className={styles.check}>
-                                <Checkbox />
-                            </div>
-                            <Title level="2" style={{ marginTop: '60px' }}>
-                                Cranium
-                            </Title>
-                            <Caption level="2" style={{ marginTop: '5px' }}>
-                                ˈkreɪnɪəm
-                            </Caption>
-                            <Caption level="1" style={{ marginTop: '10px' }}>
-                                череп
-                            </Caption>
-                        </div>
-                    </Card>
-                    <Card>
-                        <div className={styles.cards}>
-                            <div className={styles.check}>
-                                <Checkbox />
-                            </div>
-                            <Title level="2" style={{ marginTop: '60px' }}>
-                                Caput
-                            </Title>
-                            <Caption level="2" style={{ marginTop: '5px' }}>
-                                'ka.put
-                            </Caption>
-                            <Caption level="1" style={{ marginTop: '10px' }}>
-                                Голова
-                            </Caption>
-                        </div>
-                    </Card>
-                    <Card>
-                        <div className={styles.cards}>
-                            <div className={styles.check}>
-                                <Checkbox />
-                            </div>
-                            <Title level="2" style={{ marginTop: '60px' }}>
-                                Auris
-                            </Title>
-                            <Caption level="2" style={{ marginTop: '5px' }}>
-                                au̯.rɪs
-                            </Caption>
-                            <Caption level="1" style={{ marginTop: '10px' }}>
-                                Ухо
-                            </Caption>
-                        </div>
-                    </Card>
-                    <Card>
-                        <div className={styles.cards}>
-                            <div className={styles.check}>
-                                <Checkbox />
-                            </div>
-                            <Title level="2" style={{ marginTop: '60px' }}>
-                                Cor
-                            </Title>
-                            <Caption level="2" style={{ marginTop: '5px' }}>
-                                kor
-                            </Caption>
-                            <Caption level="1" style={{ marginTop: '10px' }}>
-                                Сердце
-                            </Caption>
-                        </div>
-                    </Card>
-                    <Card>
-                        <div className={styles.cards}>
-                            <div className={styles.check}>
-                                <Checkbox />
-                            </div>
-                            <Title level="2" style={{ marginTop: '60px' }}>
-                                Corpus
-                            </Title>
-                            <Caption level="2" style={{ marginTop: '5px' }}>
-                                'kor.pus
-                            </Caption>
-                            <Caption level="1" style={{ marginTop: '10px' }}>
-                                Тело
-                            </Caption>
-                        </div>
-                    </Card>
-                    <Card>
-                        <div className={styles.cards}>
-                            <div className={styles.check}>
-                                <Checkbox />
-                            </div>
-                            <Title level="2" style={{ marginTop: '60px' }}>
-                                Cruor
-                            </Title>
-                            <Caption level="2" style={{ marginTop: '5px' }}>
-                                'kru.or
-                            </Caption>
-                            <Caption level="1" style={{ marginTop: '10px' }}>
-                                Кровь
-                            </Caption>
-                        </div>
-                    </Card>
-                    <Card>
-                        <div className={styles.cards}>
-                            <div className={styles.check}>
-                                <Checkbox />
-                            </div>
-                            <Title level="2" style={{ marginTop: '60px' }}>
-                                Crus
-                            </Title>
-                            <Caption level="2" style={{ marginTop: '5px' }}>
-                                krus
-                            </Caption>
-                            <Caption level="1" style={{ marginTop: '10px' }}>
-                                Нога
-                            </Caption>
-                        </div>
-                    </Card>
+                    {currentData?.cards.map(el => {
+                        return (
+                            <Card key={el.id}>
+                                <div className={styles.cards}>
+                                    <div className={styles.check}>
+                                        <Checkbox />
+                                    </div>
+                                    <Title level="2" style={{ marginTop: '60px' }}>
+                                        {el.title}
+                                    </Title>
+                                    <Caption level="2" style={{ marginTop: '5px' }}>
+                                        {el.transcription}
+                                    </Caption>
+                                    <Caption level="1" style={{ marginTop: '10px' }}>
+                                        {el.caption}
+                                    </Caption>
+                                </div>
+                            </Card>
+                        )
+                    })}
+                </CardGrid>
+
+                <Div>
                     <Button stretched size="l" style={{ marginTop: '20px' }} onClick={() => setActiveTab("stack")}>
                         Дальше
                     </Button>
-                </CardGrid>
+                </Div>
+
             </Group>
         </Panel>
     );

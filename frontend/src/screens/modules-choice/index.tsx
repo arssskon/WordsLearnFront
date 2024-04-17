@@ -6,6 +6,8 @@ import { Icon20EducationOutline, Icon56NewsfeedOutline } from '@vkontakte/icons'
 import styles from '../modules-choice/styles.module.css';
 import Transcription from '../transcription-words';
 import { setActiveTab } from '../../store/activeTab';
+import { setActiveModule } from '../../store/activeModule';
+import data from '../../data'
 
 interface Props {
     id: string;
@@ -18,126 +20,56 @@ const ModulesChoice: React.FC<Props> = ({ id }) => (
     <Panel id={id}>
         <PanelHeader>Модули</PanelHeader>
         <Group mode="plain" >
-            <CardGrid size="l">
-                <Card className={styles.background} style={{ height: 96 }} onClick={() => setActiveTab("transcription")}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <div>
-                        <Title level="2" className={styles.title}>
-                            Модуль 1
-                        </Title>
-                        <Caption level="1" className={styles.caption}>
-                            Правила чтения в латинском языке. Начальные слова.
-                        </Caption>
-                        </div>
-                        <Button size="s" style={{ height: '35px',  marginTop: '50px', marginRight: '20px' }}>
-                            Начать
-                        </Button>
+            {
+                data.map(el => {
+                    return (
+                        <>
+                            <CardGrid size="l" key={el.id}>
+                                <Card className={styles.background} style={{ height: 96 }} onClick={() => {
+                                    setActiveTab("transcription");
+                                    setActiveModule(el.id);
+                                }}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                        <div>
+                                            <Title level="2" className={styles.title}>
+                                                {el.title}
+                                            </Title>
+                                            <Caption level="1" className={styles.caption}>
+                                                {el.description}
+                                            </Caption>
+                                        </div>
+                                    </div>
+                                </Card>
+                                <ContentCard
+                                    
+                                    onClick={() => setActiveTab("control")}
+                                    header={el.title2}
+                                    caption={el.captionTest}
+                                    maxHeight={500}>
+                                    <div style={{ height: 96 }} />
+                                </ContentCard>
+                            </CardGrid>
+                            {/* <CardGrid size="l"> */}
+                                
+                            {/* </CardGrid> */}
+                        </>
+                    )
+                })
+            }
 
-                    </div>
 
-                </Card>
-            </CardGrid>
-
-            <CardGrid size="l">
+            {/* <CardGrid size="l">
                 <ContentCard
+                    onClick={() => setActiveTab("control")}
                     header="Контрольная по 1 модулю"
                     caption="Для открытия необходимо пройти модуль 1"
                     maxHeight={500}>
                     <div style={{ height: 96 }} />
                 </ContentCard>
-            </CardGrid>
+            </CardGrid> */}
 
-            <CardGrid size="l">
-                <Card className={styles.background} style={{ height: 96, }}>
-                    <div>
-                        <Title level="2" className={styles.title}>
-                            Модуль 2
-                        </Title>
-                        <Caption level="1" className={styles.caption}>
-                            Правила чтения в латинском языке. Начальные слова.
-                        </Caption>
-                    </div>
-                </Card>
-            </CardGrid>
-
-            <CardGrid size="l">
-                <ContentCard
-                    header="Контрольная по 2 модулю"
-                    caption="Для открытия необходимо пройти модуль 2"
-                    maxHeight={500}>
-                    <div style={{ height: 96 }} />
-                </ContentCard>
-            </CardGrid>
-
-            <CardGrid size="l">
-                <Card className={styles.background} style={{ height: 96, }}>
-                    <div>
-                        <Title level="2" className={styles.title}>
-                            Модуль 3
-                        </Title>
-                        <Caption level="1" className={styles.caption}>
-                            Правила чтения в латинском языке. Начальные слова.
-                        </Caption>
-                    </div>
-                </Card>
-            </CardGrid>
-
-            <CardGrid size="l">
-                <ContentCard
-                    header="Контрольная по 3 модулю"
-                    caption="Для открытия необходимо пройти модуль 3"
-                    maxHeight={500}>
-                    <div style={{ height: 96 }} />
-                </ContentCard>
-            </CardGrid>
-
-            <CardGrid size="l">
-                <Card className={styles.background} style={{ height: 96, }}>
-                    <div>
-                        <Title level="2" className={styles.title}>
-                            Модуль 4
-                        </Title>
-                        <Caption level="1" className={styles.caption}>
-                            Правила чтения в латинском языке. Начальные слова.
-                        </Caption>
-                    </div>
-                </Card>
-            </CardGrid>
-
-            <CardGrid size="l">
-                <ContentCard
-                    header="Контрольная по 4 модулю"
-                    caption="Для открытия необходимо пройти модуль 4"
-                    maxHeight={500}>
-                    <div style={{ height: 96 }} />
-                </ContentCard>
-            </CardGrid>
-
-            <CardGrid size="l">
-                <Card className={styles.background} style={{ height: 96, }}>
-                    <div>
-                        <Title level="2" className={styles.title}>
-                            Модуль 5
-                        </Title>
-                        <Caption level="1" className={styles.caption}>
-                            Правила чтения в латинском языке. Начальные слова.
-                        </Caption>
-
-                    </div>
-                </Card>
-            </CardGrid>
-
-            <CardGrid size="l">
-                <ContentCard
-                    header="Контрольная по 5 модулю"
-                    caption="Для открытия необходимо пройти модуль 5"
-                    maxHeight={500}>
-                    <div style={{ height: 96 }} />
-                </ContentCard>
-            </CardGrid>
         </Group>
     </Panel>
-
 );
 
 export default ModulesChoice;

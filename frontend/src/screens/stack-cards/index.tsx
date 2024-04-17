@@ -5,9 +5,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-
+import data from '../../data'
 import { EffectCards, FreeMode, Pagination } from 'swiper/modules';
 import { setActiveTab } from '../../store/activeTab';
+import { useUnit } from 'effector-react';
+import { $activeModule } from '../../store/activeModule';
+import ReactCardFlip from 'react-card-flip';
 
 interface Props {
     id: string;
@@ -16,43 +19,69 @@ interface Props {
 
 const Stack: React.FC<Props> = ({ go, id }) => {
 
+    const activeModule = useUnit($activeModule)
+    const [isFlipped, setIsFlipped] = useState(false)
+    const [dataState, setDataState] = useState(data.find(el => el.id == activeModule))
+
+    const currentData = data.find(el => el.id == activeModule)
+
+    const handleFlip = (i: number) => {
+        const copyData = dataState;
+        console.log(i)
+  
+        if (copyData?.cards[i].isFlipped) {
+            console.log(copyData?.cards[i].isFlipped)
+            copyData.cards[i].isFlipped = true;
+        }
+        
+        setDataState(copyData)
+    }   
     return (
+
         <Panel id={id} >
-            <PanelHeader before={<PanelHeaderBack />}> Модуль 1</PanelHeader>
+            {/* <PanelHeader before={<PanelHeaderBack />}> {currentData?.title}</PanelHeader> */}
+            <PanelHeader
+                // delimiter={"spacing"}
+                before={<PanelHeaderBack onClick={() => setActiveTab('transcription')} />}
+            >
+                {currentData?.title}
+            </PanelHeader>
             <Group className={styles.stackBase} >
-                <Div style={{ display: 'flex', justifyContent: 'center'}}>
-                    <Div style={{}}>
-                        <Swiper
+                
+                    <Div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <Swiper 
                             effect={'cards'}
                             grabCursor={true}
-                            modules={[EffectCards,]}
-                            //direction={'vertical'}
+                            modules={[EffectCards]}
                             slidesPerView={1}
-                            // spaceBetween={3}
-                            // modules={[FreeMode, Pagination]}
                             className={styles.mySwiper}
-
                         >
-                            <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>1 ноги</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>2 руки</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>3 голова</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>4 тело</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>5 сердце</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>6 палец</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>7 печень</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>8 зубы</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>9 глаз</SwiperSlide>
+                            {dataState?.cards.map((el, i) => {
+                                return (
+                                    
+                                    <SwiperSlide key={el.id} onClick={() => handleFlip(i)} >
+                                       <ReactCardFlip containerStyle={{height: '100%'}} flipDirection="vertical" isFlipped={!el.isFlipped} >
+                                            <div className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>{el.title}</div>
+                                            <div className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>ntgdfg</div>
+                                        </ReactCardFlip>
+                                    </SwiperSlide>
+                                )
+                            })}
+
                         </Swiper>
-                    </Div>
-                    <Div className={styles.btnFurther}>
-                        <Button stretched size="l" mode="tertiary" style={{ backgroundColor: 'white'}} onClick={() => setActiveTab("choose")}>
+                        <Div className={styles.btnFurther}>
+                        <Button stretched size="l" mode="tertiary" style={{ backgroundColor: 'white' }} onClick={() => setActiveTab("choose")}>
                             Дальше
                         </Button>
                     </Div>
-                </Div>
+                    </Div>
+
+                    
+                
             </Group>
         </Panel>
     );
 };
 
 export default Stack;
+

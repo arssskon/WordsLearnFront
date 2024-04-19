@@ -1,12 +1,6 @@
-import React, { Fragment, MouseEventHandler, useState, useRef } from 'react';
+import React, { MouseEventHandler, useState, useEffect } from 'react';
 import styles from '../stack-choose/styles.module.css';
-import { Panel, PanelHeader, Group, PanelHeaderBack, Caption, Title, Card, Checkbox, CardGrid, Button, Div, FormItem } from '@vkontakte/vkui';
-import { Swiper, SwiperSlide } from 'swiper/react';
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-
-import { EffectCards, FreeMode, Pagination } from 'swiper/modules';
+import { Panel, PanelHeader, Group, PanelHeaderBack, Caption, Title, Card, Checkbox, CardGrid, Button, Div } from '@vkontakte/vkui';
 import { setActiveTab } from '../../store/activeTab';
 import { useUnit } from 'effector-react';
 import data from '../../data';
@@ -17,84 +11,85 @@ interface Props {
     go: MouseEventHandler<HTMLElement>;
 }
 
-const Сhoose: React.FC<Props> = ({ go, id }) => {
+const Choose: React.FC<Props> = ({ go, id }) => {
+    const activeModule = useUnit($activeModule);
+    const [currentData, setCurrentData] = useState(data.find(el => el.id === activeModule));
+    const [firstWord, setFirstWord] = useState<string>(''); // State to hold the first word
+    const [checkboxes, setCheckboxes] = useState(() => new Array(currentData?.cards.length).fill(false)); // State to hold checkbox states
+    const [shuffledCards, setShuffledCards] = useState(currentData?.cards || []); // State to hold shuffled cards
 
-    const activeModule = useUnit($activeModule)
-   
+    useEffect(() => {
+        setCurrentData(data.find(el => el.id === activeModule));
+        setFirstWord(getRandomWord()); // Initialize the first word when module changes
+        setCheckboxes(() => new Array(currentData?.cards.length).fill(false)); // Reset checkboxes
+        setShuffledCards(currentData?.cards || []); // Reset shuffled cards
+    }, [activeModule]);
 
-    const currentData = data.find(el => el.id == activeModule)
+    const handleAnswerSelection = (selectedTitle: string, index: number) => {
+        if (selectedTitle === firstWord) { // Check if the selected word matches the first word
+            const newFirstWord = getRandomWord(); // Generate a new first word
+            setCurrentData((prevData) => ({ ...prevData!, caption: newFirstWord }));
+            setFirstWord(newFirstWord); // Update the first word state
+            setCheckboxes((prevCheckboxes) => prevCheckboxes.map(() => false)); // Reset all checkboxes
+            setShuffledCards(shuffleArray(currentData?.cards || [])); // Shuffle the cards
+        } else {
+            setCheckboxes((prevCheckboxes) => {
+                const newCheckboxes = [...prevCheckboxes];
+                newCheckboxes[index] = !prevCheckboxes[index];
+                return newCheckboxes;
+            }); // Toggle the checkbox
+        }
+    };
+
+    const getRandomWord = () => {
+        const randomIndex = Math.floor(Math.random() * shuffledCards.length); // Get a random index
+        return shuffledCards[randomIndex].title; // Return the word at that index
+    };
+
+    const shuffleArray = (array: any[]) => {
+        // Shuffle the array randomly
+        // Fisher-Yates algorithm implementation
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    };
 
     return (
         <Panel id={id}>
-            {/* <PanelHeader before={<PanelHeaderBack />}> Модуль 1</PanelHeader> */}
-            <PanelHeader
-                // delimiter={"spacing"}
-                before={<PanelHeaderBack onClick={() => setActiveTab('stack')} />}
-            >
+            <PanelHeader before={<PanelHeaderBack onClick={() => setActiveTab('stack')} />}>
                 {currentData?.title}
             </PanelHeader>
-            <Group className={styles.stackBase} >
+            <Group className={styles.stackBase}>
                 <Div>
-                    <CardGrid size="l">
+                    <CardGrid size="l" style={{marginBottom: '80px'}}>
                         <Card mode="shadow">
                             <div className={styles.text}>
                                 <Title level="2" className={styles.title}>
-                                    Череп
+                                    {firstWord}
                                 </Title>
-                                <Caption level="1" className={styles.caption}>
-                                    {/* Для транскрипции */}
-                                </Caption>
                             </div>
                         </Card>
                     </CardGrid>
-
-                    <Card mode="outline">
-                        <div className={styles.choice1}>
-                            <Title level="3" className={styles.caption}>
-                                Chamaemelon
-                            </Title>
-                            <Checkbox style={{zIndex: 1}}/>
-                        </div>
-                    </Card>
-
-                    <Card mode="outline">
-                        <div className={styles.choice}>
-                            <Title level="3" className={styles.caption}>
-                                Auris
-                            </Title>
-                            <Checkbox style={{zIndex: 1}}/>
-                        </div>
-                    </Card>
-
-                    <Card mode="outline">
-                        <div className={styles.choice}>
-                            <Title level="3" className={styles.caption}>
-                                Ixia
-                            </Title>
-                            <Checkbox style={{zIndex: 1}}/>
-                        </div>
-                    </Card>
-
-                    <Card mode="outline">
-                        <div className={styles.choice}>
-                            <Title level="3" className={styles.caption}>
-                                Cranium
-                            </Title>
-                            <Checkbox style={{zIndex: 1}}/>
-                        </div>
-                    </Card>
-
-                    <Card mode="outline">
-                        <div className={styles.choice}>
-                            <Title level="3" className={styles.caption}>
-                                Caput
-                            </Title>
-                            <Checkbox style={{zIndex: 1}}/>
-                        </div>
-                    </Card>
-
+                    {shuffledCards && shuffledCards.map((el, index) => (
+                        <CardGrid size="l" key={el.id}>
+                            <Card mode="outline">
+                                <div className={styles.choice1}>
+                                    <Title level="3" className={styles.caption}>
+                                        {el.caption}
+                                    </Title>
+                                    <Checkbox
+                                        style={{ zIndex: 1 }}
+                                        onChange={() => handleAnswerSelection(el.title, index)}
+                                        checked={checkboxes[index]}
+                                    />
+                                </div>
+                            </Card>
+                        </CardGrid>
+                    ))}
                     <Div className={styles.btnEnd}>
-                        <Button stretched size="l" onClick={() => setActiveTab("one")}>
+                        <Button stretched size="l" onClick={() => setActiveTab('one')}>
                             Завершить
                         </Button>
                     </Div>
@@ -104,4 +99,4 @@ const Сhoose: React.FC<Props> = ({ go, id }) => {
     );
 };
 
-export default Сhoose;
+export default Choose;

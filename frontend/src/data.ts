@@ -30,31 +30,36 @@ const data = [{
             "id": "1.4",
             "title": "Auris",
             "transcription": "au̯.rɪs",
-            "caption": "Ухо"
+            "caption": "Ухо",
+            'isFlipped': true
         },
         {
             "id": "1.5",
             "title": "Cor",
             "transcription": "kor",
-            "caption": "Сердце"
+            "caption": "Сердце",
+            'isFlipped': true
         },
         {
             "id": "1.6",
             "title": "Corpus",
             "transcription": "ˈkor.pus",
-            "caption": "Тело"
+            "caption": "Тело",
+            'isFlipped': true
         },
         {
             "id": "1.7",
             "title": "Cruor",
             "transcription": "ˈkru.or",
-            "caption": "Кровь"
+            "caption": "Кровь",
+            'isFlipped': true
         },
         {
             "id": "1.8",
             "title": "Crus",
             "transcription": "krus",
-            "caption": "Нога"
+            "caption": "Нога",
+            'isFlipped': true
         }
     ],
     "title2": "Контрольная по 1 модулю",
@@ -70,49 +75,57 @@ const data = [{
             "id": "1.1",
             "title": "Ixia",
             "transcription": "ɪkˈsɪə",
-            "caption": "Иксия"
+            "caption": "Иксия",
+            'isFlipped': true
         },
         {
             "id": "1.2",
             "title": "Cranium",
             "transcription": "ˈkreɪnɪəm",
-            "caption": "череп"
+            "caption": "череп",
+            'isFlipped': true
         },
         {
             "id": "1.3",
             "title": "Caput",
             "transcription": "ˈka.put",
-            "caption": "Голова"
+            "caption": "Голова",
+            'isFlipped': true
         },
         {
             "id": "1.4",
             "title": "Auris",
             "transcription": "au̯.rɪs",
-            "caption": "Ухо"
+            "caption": "Ухо",
+            'isFlipped': true
         },
         {
             "id": "1.5",
             "title": "Cor",
             "transcription": "kor",
-            "caption": "Сердце"
+            "caption": "Сердце",
+            'isFlipped': true
         },
         {
             "id": "1.6",
             "title": "Corpus",
             "transcription": "ˈkor.pus",
-            "caption": "Тело"
+            "caption": "Тело",
+            'isFlipped': true
         },
         {
             "id": "1.7",
             "title": "Cruor",
             "transcription": "ˈkru.or",
-            "caption": "Кровь"
+            "caption": "Кровь",
+            'isFlipped': true
         },
         {
             "id": "1.8",
             "title": "Crus",
             "transcription": "krus",
-            "caption": "Нога"
+            "caption": "Нога",
+            'isFlipped': true
         }
     ],
     "title2": "Контрольная по 2 модулю",

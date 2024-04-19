@@ -19,69 +19,54 @@ interface Props {
 
 const Stack: React.FC<Props> = ({ go, id }) => {
 
-    const activeModule = useUnit($activeModule)
-    const [isFlipped, setIsFlipped] = useState(false)
-    const [dataState, setDataState] = useState(data.find(el => el.id == activeModule))
+    const activeModule = useUnit($activeModule);
+    const [isFlipped, setIsFlipped] = useState(false);
+    const [dataState, setDataState] = useState(data.find(el => el.id === activeModule)?.cards || []);
 
-    const currentData = data.find(el => el.id == activeModule)
+    const currentData = data.find(el => el.id === activeModule);
 
     const handleFlip = (i: number) => {
-        const copyData = dataState;
-        console.log(i)
-  
-        if (copyData?.cards[i].isFlipped) {
-            console.log(copyData?.cards[i].isFlipped)
-            copyData.cards[i].isFlipped = true;
-        }
-        
-        setDataState(copyData)
-    }   
-    return (
+        setDataState(prevState => {
+            const newDataState = [...prevState];
+            newDataState[i].isFlipped = !newDataState[i].isFlipped;
+            return newDataState;
+        });
+    };
 
+    return (
         <Panel id={id} >
-            {/* <PanelHeader before={<PanelHeaderBack />}> {currentData?.title}</PanelHeader> */}
             <PanelHeader
-                // delimiter={"spacing"}
                 before={<PanelHeaderBack onClick={() => setActiveTab('transcription')} />}
             >
                 {currentData?.title}
             </PanelHeader>
             <Group className={styles.stackBase} >
-                
-                    <Div style={{ display: 'flex', justifyContent: 'center' }}>
-                        <Swiper 
-                            effect={'cards'}
-                            grabCursor={true}
-                            modules={[EffectCards]}
-                            slidesPerView={1}
-                            className={styles.mySwiper}
-                        >
-                            {dataState?.cards.map((el, i) => {
-                                return (
-                                    
-                                    <SwiperSlide key={el.id} onClick={() => handleFlip(i)} >
-                                       <ReactCardFlip containerStyle={{height: '100%'}} flipDirection="vertical" isFlipped={!el.isFlipped} >
-                                            <div className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>{el.title}</div>
-                                            <div className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>ntgdfg</div>
-                                        </ReactCardFlip>
-                                    </SwiperSlide>
-                                )
-                            })}
-
-                        </Swiper>
-                        <Div className={styles.btnFurther}>
+                <Div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <Swiper 
+                        effect={'cards'}
+                        grabCursor={true}
+                        modules={[EffectCards]}
+                        slidesPerView={1}
+                        className={styles.mySwiper}
+                    >
+                        {dataState.map((el, i: number) => (
+                            <SwiperSlide key={el.id} onClick={() => handleFlip(i)}>
+                                <ReactCardFlip containerStyle={{ height: '100%' }} flipDirection="vertical" isFlipped={!el.isFlipped}>
+                                    <div className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>{el.title}</div>
+                                    <div className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>{el.caption}</div>
+                                </ReactCardFlip>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                    <Div className={styles.btnFurther}>
                         <Button stretched size="l" mode="tertiary" style={{ backgroundColor: 'white' }} onClick={() => setActiveTab("choose")}>
                             Дальше
                         </Button>
                     </Div>
-                    </Div>
-
-                    
-                
+                </Div>
             </Group>
         </Panel>
     );
 };
 
 export default Stack;
-

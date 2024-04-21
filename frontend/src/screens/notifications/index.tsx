@@ -14,8 +14,6 @@ import 'swiper/css/pagination';
 import { FreeMode, Pagination } from 'swiper/modules';
 import { setActivePanel } from '../../store/activePanel';
 
-
-
 interface Props {
     id: string;
     go: MouseEventHandler<HTMLElement>;
@@ -32,18 +30,9 @@ const Notifications: React.FC<Props> = ({ go, id }) => {
                 <Div className={styles.timers} style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', zIndex: '2', marginTop: '-80px'}}>
                     <Div>
                         <Swiper
-                            // direction={'vertical'}
-                            // //slidesPerView={3}
-                            // spaceBetween={30}
-                            // modules={[FreeMode, Pagination]}
-                            // className={styles.mySwiper}
-                            direction={'vertical'}
-                            slidesPerView={5}
-                            // spaceBetween={3}
+                            slidesPerView={'auto'}
                             modules={[FreeMode, Pagination]}
                             className={styles.mySwiper}
-
-
                         >
                             <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>5 мин</SwiperSlide>
                             <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>10 мин</SwiperSlide>
@@ -58,13 +47,9 @@ const Notifications: React.FC<Props> = ({ go, id }) => {
                     </Div>
                     <Div >
                         <Swiper
-                            direction={'vertical'}
-                            // slidesPerView={3}
-                            spaceBetween={30}
-                            freeMode={true}
+                            slidesPerView={'auto'}
                             modules={[FreeMode, Pagination]}
                             className={styles.mySwiper}
-
                         >
                             <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>5 мин</SwiperSlide>
                             <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>10 мин</SwiperSlide>

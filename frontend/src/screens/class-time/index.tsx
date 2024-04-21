@@ -14,39 +14,42 @@ import 'swiper/css/pagination';
 import { FreeMode, Pagination } from 'swiper/modules';
 import { setActivePanel } from '../../store/activePanel';
 
-
-
 interface Props {
     id: string;
     go: MouseEventHandler<HTMLElement>;
 }
 
 const Time: React.FC<Props> = ({ go, id }) => {
+    const [activeIndex, setActiveIndex] = useState<number>(0);
+
+    const handleSlideChange = (swiper: any) => {
+        setActiveIndex(swiper.activeIndex);
+    };
+
     return (
         <Div className={styles.screen}>
             <Panel id={id}>
                 <PanelHeader>Время занятий</PanelHeader>
-                <Div >
+                <Div style={{height: '100px', }}>
                     <Swiper
                         slidesPerView={3}
                         spaceBetween={30}
                         freeMode={true}
-                        // pagination={{
-                        //     clickable: true,
-                        // }}
+                        onSlideChange={handleSlideChange}
                         modules={[FreeMode, Pagination]}
                         className={styles.mySwiper}
-                        
                     >
-                        <SwiperSlide className={styles.swiperSlide} style={{display: 'flex', alignItems: 'center'}}>5 мин</SwiperSlide>
-                        <SwiperSlide className={styles.swiperSlide} style={{display: 'flex', alignItems: 'center'}}>10 мин</SwiperSlide>
-                        <SwiperSlide className={styles.swiperSlide} style={{display: 'flex', alignItems: 'center'}}>15 мин</SwiperSlide>
-                        <SwiperSlide className={styles.swiperSlide} style={{display: 'flex', alignItems: 'center'}}>20 мин</SwiperSlide>
-                        <SwiperSlide className={styles.swiperSlide} style={{display: 'flex', alignItems: 'center'}}>25 мин</SwiperSlide>
-                        <SwiperSlide className={styles.swiperSlide} style={{display: 'flex', alignItems: 'center'}}>30 мин</SwiperSlide>
-                        <SwiperSlide className={styles.swiperSlide} style={{display: 'flex', alignItems: 'center'}}>35 мин</SwiperSlide>
-                        <SwiperSlide className={styles.swiperSlide} style={{display: 'flex', alignItems: 'center'}}>40 мин</SwiperSlide>
-                        <SwiperSlide className={styles.swiperSlide} style={{display: 'flex', alignItems: 'center'}}>45 мин</SwiperSlide>
+                        <SwiperSlide className={`${styles.swiperSlideNONE} ${activeIndex === -1 ? styles.activeSlide : styles.inactiveSlide}`}></SwiperSlide>
+                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 0 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center'}}>5 мин</SwiperSlide>
+                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 1 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center'}}>10 мин</SwiperSlide>
+                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 2 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center'}}>15 мин</SwiperSlide>
+                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 3 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center'}}>20 мин</SwiperSlide>
+                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 4 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center'}}>25 мин</SwiperSlide>
+                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 5 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center'}}>30 мин</SwiperSlide>
+                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 6 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center'}}>35 мин</SwiperSlide>
+                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 7 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center'}}>40 мин</SwiperSlide>
+                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 8 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center'}}>45 мин</SwiperSlide>
+                        <SwiperSlide className={`${styles.swiperSlideNONE} ${activeIndex === -1 ? styles.activeSlide : styles.inactiveSlide}`}></SwiperSlide>
                     </Swiper>
                 </Div>
                 <Div className={styles.group}>
@@ -60,7 +63,3 @@ const Time: React.FC<Props> = ({ go, id }) => {
 };
 
 export default Time;
-
-
-
-

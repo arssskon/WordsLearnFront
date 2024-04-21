@@ -33,9 +33,10 @@ interface DataType {
   title3: string;
 }
 
-const currentData = data.find(el => el.id == $activeModule.getState()) as DataType;
+
 
 const Control: React.FC<Props> = ({ go, id, writebar }) => {
+    const currentData = data.find(el => el.id == $activeModule.getState()) as DataType;
   const activeModule = useUnit($activeModule);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
@@ -65,7 +66,7 @@ const Control: React.FC<Props> = ({ go, id, writebar }) => {
   const currentCard = shuffledCards[currentCardIndex];
 
   const handleNextButtonClick = () => {
-    if (correctAnswers === 3) {
+    if (correctAnswers === 1) {
       setActiveTab("cards");
     }
   };
@@ -101,7 +102,7 @@ const Control: React.FC<Props> = ({ go, id, writebar }) => {
           </Card>
         </Div>
         <Div className={styles.btnFurther}>
-          <Button stretched size="l" disabled={correctAnswers < 3} onClick={handleNextButtonClick}>
+          <Button stretched size="l" disabled={correctAnswers < 1} onClick={handleNextButtonClick}>
             Дальше
           </Button>
         </Div>

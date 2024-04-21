@@ -82,7 +82,7 @@ const data = [{
             "id": "1.2",
             "title": "Cranium",
             "transcription": "ˈkreɪnɪəm",
-            "caption": "череп",
+            "caption": "Череп",
             'isFlipped': true
         },
         {

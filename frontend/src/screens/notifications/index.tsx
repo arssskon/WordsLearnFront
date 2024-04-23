@@ -35,15 +35,20 @@ const Notifications: React.FC<Props> = ({ go, id }) => {
                             modules={[FreeMode, Pagination]}
                             className={styles.mySwiper}
                         >
-                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>5 мин</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>10 мин</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>15 мин</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>20 мин</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>25 мин</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>30 мин</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>35 мин</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>40 мин</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>45 мин</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>1</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>2</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>3</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>4</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>5</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>6</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>7</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>8</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>9</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>10</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>11</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>12</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>13</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>14</SwiperSlide>
                         </Swiper>
                     </Div>
                     <Div >
@@ -53,15 +58,15 @@ const Notifications: React.FC<Props> = ({ go, id }) => {
                             modules={[FreeMode, Pagination]}
                             className={styles.mySwiper}
                         >
-                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>5 мин</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>10 мин</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>15 мин</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>20 мин</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>25 мин</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>30 мин</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>35 мин</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>40 мин</SwiperSlide>
-                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>45 мин</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>1</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>2</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>3</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>4</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>5</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>6</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>7</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>8</SwiperSlide>
+                            <SwiperSlide className={styles.swiperSlide} style={{display: 'flex' ,alignItems: 'center'}}>9</SwiperSlide>
                         </Swiper>
                     </Div>
                 </Div>

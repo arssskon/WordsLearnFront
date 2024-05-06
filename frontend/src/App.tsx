@@ -24,6 +24,10 @@ import Lists from './screens/dictionary-list'
 import Setting from './screens/profile-setting/indet';
 import Error from './screens/error';
 
+// import bridge, { UserInfo } from "@vkontakte/vk-bridge";
+
+// const [fetchedUser, setUser] = useState‹UserInfo | undefined>();
+
 interface Data {
     [key: string]: any;
 }

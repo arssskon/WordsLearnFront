@@ -1,4 +1,4 @@
-import React, { Fragment, MouseEventHandler, useState } from 'react';
+import React, { Fragment, MouseEventHandler, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from '../modules-home/styles.module.css';
 import { Panel, PanelHeader, Group, Div, TabbarItem, Tabbar, Epic, View, PanelHeaderBack, Placeholder, List } from '@vkontakte/vkui';
@@ -17,33 +17,38 @@ import Cards from '../test-cards';
 import Lists from '../dictionary-list';
 import Setting from '../profile-setting/indet';
 import Error from '../error';
+import { fetchUser } from '../api/user';
+import { UserInfo } from '@vkontakte/vk-bridge';
 
 interface Props {
     id: string;
     go: MouseEventHandler<HTMLElement>;
 }
 
-
-
 const Modules: React.FC<Props> = ({ go, id }) => {
     const [text, setText] = useState<string>('one'); // Initialize text state with 'one'
     // const onStoryChange = (e: any) => setActiveStory(e.currentTarget.dataset.story);
 
-   
     const activeStory = useUnit($activeTab)
 
+    const [user, setUser] = useState<UserInfo | null>(null);
+
+    useEffect(() => {
+        fetchUser().then(setUser);
+    }, []);
+
     return (
-        <Panel id={id}>            
+        <Panel id={id}>
             <Epic
                 activeStory={activeStory}
                 tabbar={
-                    <Navigation/>
+                    <Navigation />
                 } >
-                <ModulesChoice key='one' id='one'/>
-               
-                <Dictionary key='two' id='two' go={go}/>
-                
-                <Profile key='three' id='three'/>  
+                <ModulesChoice key='one' id='one' />
+
+                <Dictionary key='two' id='two' go={go} />
+
+                {user && <Profile key='three' id='three' fetchedUser={user} />}
 
                 <Transcription id='transcription' go={go} />
 
@@ -60,7 +65,6 @@ const Modules: React.FC<Props> = ({ go, id }) => {
                 <Setting id='setting' go={go} />
 
                 <Error id='error' go={go} />
-
 
             </Epic>
         </Panel>

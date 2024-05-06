@@ -30,7 +30,7 @@ const Setting: React.FC<Props> = ({ id }) => (
                 </SimpleCell>
             </Group>
             <Group header={<Header mode="secondary">Специальные возможности</Header>}>
-                <SimpleCell Component="label" after={<Switch defaultChecked />}>
+                <SimpleCell Component="label" disabled after={<Switch disabled/>}>
                     Озвучивание текста
                 </SimpleCell>
                 <SimpleCell
@@ -42,7 +42,7 @@ const Setting: React.FC<Props> = ({ id }) => (
                 </SimpleCell>
             </Group>
             <Group header={<Header mode="secondary">Уведомления</Header>}>
-                <SimpleCell Component="label" after={<Switch defaultChecked />}>
+                <SimpleCell Component="label" disabled after={<Switch disabled/>}>
                     Уведомления
                 </SimpleCell>
                 <Div>

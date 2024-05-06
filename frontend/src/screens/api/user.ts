@@ -1,7 +1,7 @@
 import bridge from "@vkontakte/vk-bridge";
 
 
-export const fetchVkUser = async () => {
+export const fetchUser = async () => {
     console.log('hello user');
     const user = await bridge.send('VKWebAppGetUserInfo');
     console.log(user);
@@ -9,3 +9,5 @@ export const fetchVkUser = async () => {
     return user;
     
   }
+
+  export default fetchUser;

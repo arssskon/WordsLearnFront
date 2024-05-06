@@ -17,7 +17,7 @@ interface Props {
 const Intro: React.FC<Props> = ({ go, id }) => (
 	<Div className={styles.screen}>
 	<Panel id={id}  >
-		<Group  >
+		<Group>
 			<Div >
 				<img
 					className={styles.logo}

@@ -15,13 +15,13 @@ const Сhoice: React.FC<Props> = ({ go, id }) => (
     <Panel id={id} className={styles.screen}>
 
         <Group className={styles.groop}>
-            <Div >
+            <Div style={{marginTop: '60px'}}>
                 <Group header={<Header>Выберите интересующие вас темы</Header>} >
                     <Cell Component="label"  after={<Checkbox />}>
                         Медицина
                     </Cell>
                     <Cell Component="label"  after={<Checkbox />}>
-                        Фармаология
+                        Фармакология
                     </Cell>
                     <Cell Component="label"  after={<Checkbox />}>
                         Ботаника

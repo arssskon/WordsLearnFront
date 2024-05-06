@@ -1,16 +1,11 @@
-import 'swiper/swiper-bundle.css'; // Импортируем стили Swiper
-
+import 'swiper/swiper-bundle.css';
 import styles from '../class-time/styles.module.css';
 import { Panel, Div, PanelHeader, Button } from '@vkontakte/vkui';
 import React, { MouseEventHandler, useRef, useState } from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
-// import required modules
 import { FreeMode, Pagination } from 'swiper/modules';
 import { setActivePanel } from '../../store/activePanel';
 
@@ -40,23 +35,23 @@ const Time: React.FC<Props> = ({ go, id }) => {
                         className={styles.mySwiper}
                     >
                         <SwiperSlide className={`${styles.swiperSlideNONE} ${activeIndex === -1 ? styles.activeSlide : styles.inactiveSlide}`}></SwiperSlide>
-                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 0 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center'}}>5 мин</SwiperSlide>
-                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 1 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center'}}>10 мин</SwiperSlide>
-                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 2 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center'}}>15 мин</SwiperSlide>
-                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 3 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center'}}>20 мин</SwiperSlide>
-                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 4 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center'}}>25 мин</SwiperSlide>
-                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 5 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center'}}>30 мин</SwiperSlide>
-                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 6 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center'}}>35 мин</SwiperSlide>
-                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 7 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center'}}>40 мин</SwiperSlide>
-                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 8 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center'}}>45 мин</SwiperSlide>
+                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 0 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center', color: 'black'}}>5 мин</SwiperSlide>
+                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 1 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center', color: 'black'}}>10 мин</SwiperSlide>
+                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 2 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center', color: 'black'}}>15 мин</SwiperSlide>
+                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 3 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center', color: 'black'}}>20 мин</SwiperSlide>
+                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 4 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center', color: 'black'}}>25 мин</SwiperSlide>
+                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 5 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center', color: 'black'}}>30 мин</SwiperSlide>
+                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 6 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center', color: 'black'}}>35 мин</SwiperSlide>
+                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 7 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center', color: 'black'}}>40 мин</SwiperSlide>
+                        <SwiperSlide className={`${styles.swiperSlide} ${activeIndex === 8 ? styles.activeSlide : styles.inactiveSlide}`} style={{display: 'flex', alignItems: 'center', color: 'black'}}>45 мин</SwiperSlide>
                         <SwiperSlide className={`${styles.swiperSlideNONE} ${activeIndex === -1 ? styles.activeSlide : styles.inactiveSlide}`}></SwiperSlide>
                     </Swiper>
                 </Div>
                 <Div className={styles.group}>
-				<Button stretched size="l" onClick={() => setActivePanel("notifications")} style={{ }}>
-					Дальше
-				</Button>
-			</Div>
+                    <Button stretched size="l" onClick={() => setActivePanel("modules")} style={{ }}>
+                        Дальше
+                    </Button>
+                </Div>
             </Panel>
         </Div>
     );

@@ -38,9 +38,9 @@ const Lists: React.FC<Props> = ({ id, go }) => {
                 <CardGrid size="l">
                     {currentData?.cards.map(el => {
                         return (
-                            <Card key={el.id} style={{height: '30px'}}>
+                            <Card key={el.id} style={{height: '25px'}}>
                                 <div className={styles.cards} >
-                                    <Title style={{ marginLeft: '10px' }}>
+                                    <Title style={{ marginLeft: '10px' }} level="2">
                                         {el.title}
                                     </Title>
                                     
@@ -48,8 +48,8 @@ const Lists: React.FC<Props> = ({ id, go }) => {
                                         <Icon16LikeOutline width={20} height={20} style={{ marginRight: '10px' }} />
                                     </IconButton>
                                 </div>
-                                <div style={{ display: 'flex', alignItems: 'center', zIndex: '2', justifyContent: 'center', marginTop: '-20px' }}>
-                                        <Caption level="2" className={styles.caption}>
+                                <div style={{ display: 'flex', alignItems: 'center', zIndex: '2', justifyContent: 'center', marginTop: '-18px' }}>
+                                        <Caption level="1" className={styles.caption}>
                                             {el.caption}
                                         </Caption>
                                     </div>

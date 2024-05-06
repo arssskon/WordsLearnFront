@@ -42,7 +42,7 @@ const Stack: React.FC<Props> = ({ go, id }) => {
             </PanelHeader>
             <Group className={styles.stackBase} >
                 <Div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Swiper 
+                    <Swiper
                         effect={'cards'}
                         grabCursor={true}
                         modules={[EffectCards]}
@@ -52,14 +52,23 @@ const Stack: React.FC<Props> = ({ go, id }) => {
                         {dataState.map((el, i: number) => (
                             <SwiperSlide key={el.id} onClick={() => handleFlip(i)}>
                                 <ReactCardFlip containerStyle={{ height: '100%' }} flipDirection="vertical" isFlipped={!el.isFlipped}>
-                                    <div className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>{el.title}</div>
-                                    <div className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center' }}>{el.caption}</div>
+                                    <div className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center', color: 'black' }}>
+                                        <Title level="2">
+                                            {el.title}
+                                        </Title>
+                                    </div>
+
+                                    <div className={styles.swiperSlide} style={{ display: 'flex', alignItems: 'center', color: 'black' }}>     
+                                        <Title level="2">
+                                            {el.caption}
+                                        </Title>
+                                    </div>
                                 </ReactCardFlip>
                             </SwiperSlide>
                         ))}
                     </Swiper>
                     <Div className={styles.btnFurther}>
-                        <Button stretched size="l" mode="tertiary" style={{ backgroundColor: 'white' }} onClick={() => setActiveTab("choose")}>
+                        <Button stretched size="l" mode="tertiary" style={{ backgroundColor: 'white', color: '#2975CC' }} onClick={() => setActiveTab("choose")}>
                             Дальше
                         </Button>
                     </Div>
